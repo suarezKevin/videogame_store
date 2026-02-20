@@ -1,10 +1,32 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-h1{
+body {
     display: flex;
-    justify-content: center;
-    color: blue;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0c2b4e;
 }
 
+.content {
+    flex: 1;
+}
+
+footer {
+    background-color: #0e345e;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #eafaf8;
+    p{
+        margin-bottom: 10px;
+    }
+    a{
+        color: inherit;
+        text-decoration-line: none;
+    }
+}

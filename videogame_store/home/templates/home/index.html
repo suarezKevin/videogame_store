@@ -1,21 +1,16 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Videojuegos</title>
-    <link rel="icon" href="{% static 'img/lol.jpg' %}" type="image/jpg" >
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <script src="{% static 'js/script.js' %}"></script>
-</head>
-<body>
-    <h1>Bienvenido a la Tienda de Videojuegos</h1>
-    <p>Explora nuestro catálogo y disfruta.</p>
 
-    <footer>
-        <p>2026 Tienda de Videojuegos</p>
-        <a href="{% url 'contacto' %}">Contacto</a>
-    </footer>
-</body>
-</html>
+{% block title %} Tienda de Videojuegos - Inicio {% endblock %}
+
+{% block content %}
+
+<div class="info">
+    <h1>Bienvenido a la Tienda de Videojuegos</h1>
+    <p class="note">Explora nuestro catálogo y disfruta de las mejores ofertas</p>
+    <div class="info__note info__note-1">Nueva coleccion de videojuegos disponible esta semana</div>
+    <div class="info__note info__note-2">Recuerda revisar las restricciones de edad para algunos juegos.</div>
+    <div class="info__note info__note-3">Algunos productos tienen stock limitado, ¡apresúrate!</div>
+</div>
+
+{% endblock %}

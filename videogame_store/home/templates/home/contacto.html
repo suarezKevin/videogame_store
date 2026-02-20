@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Tienda de Videojuegos</title>
-</head>
-<body>
-    <h1>Contacto</h1>
-    <p>Envía un correo a contacto@videogame.com</p>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contacto - Tienda de Videojuegos  {% endblock %}
 
-    <footer>
-        <p>2026 Tienda de Videojuegos</p>
-        <a href="{% url 'home' %}">Home</a>
-    </footer>
-</body>
-</html>
+
+{% block content %}
+
+<div>
+    <h1>Contacto</h1>
+    <p>Envía un correo a contactovideogames@gmail.com</p>
+</div>
+
+{% endblock %}
