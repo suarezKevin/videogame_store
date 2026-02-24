@@ -1,0 +1,32 @@
+.catalog__title {
+    margin: 20px 0;
+    text-align: center;
+    color: #eafaf8;
+}
+
+.catalog__content {
+    margin: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+}
+
+.catalog__content-item {
+    flex: 1;
+    box-shadow: 0 0 20px 3px black;
+}
+
+.catalog__content-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.catalog__content h4 {
+    text-align: center;
+    color: #eafaf8;
+}
+
+.catalog__content-item:hover {
+    box-shadow: 0 0 20px 3px #25a394;
+}
+
