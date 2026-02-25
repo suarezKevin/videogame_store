@@ -5,7 +5,7 @@
 }
 
 .catalog__content {
-    margin: 20px 40px;
+    margin: 20px 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 70px;
@@ -14,11 +14,14 @@
 .catalog__content-item {
     flex: 1;
     box-shadow: 0 0 20px 3px black;
+    /* overflow: hidden; */
 }
 
 .catalog__content-img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 500px;
+    /* object-fit: cover; */
+    /* object-position: center; */
 }
 
 .catalog__content h4 {

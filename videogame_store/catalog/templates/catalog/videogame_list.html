@@ -7,7 +7,7 @@
 <div class="catalog__content">
     {% for videogame in videogame_list %}
     <div class="catalog__content-item">
-        <img class="catalog__content-img" src="{% static 'img/lol.jpg' %}" alt="">
+        <img class="catalog__content-img" src="{% static 'img/front/' %}{{videogame.image}}" alt="">
         <div>
             <h4>{{videogame.name}}</h5>
             <p>Plataforma: {{videogame.platform}}</p>
