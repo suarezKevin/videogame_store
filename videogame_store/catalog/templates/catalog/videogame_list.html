@@ -10,10 +10,44 @@
         <img class="catalog__content-img" src="{% static 'img/front/' %}{{videogame.image}}" alt="">
         <div>
             <h4>{{videogame.name}}</h5>
-            <p>Plataforma: {{videogame.platform}}</p>
-            <p>Price: {{videogame.price}}</p>
+                <p>Plataforma: {{videogame.platform}}</p>
+                <p>Price: {{videogame.price}}</p>
         </div>
     </div>
     {% endfor %}
 </div>
+
+<nav class="nav__container">
+    <ul class="nav__container__ul">
+        {% if videogame_list.has_previous %}
+        <li>
+            <a href="?page=1">Primera</a>
+        </li>
+        <li>
+            <a href="?page={{videogame_list.previous_page_number}}">Anterior</a>
+        </li>
+        {% else %}
+        <li><span>Primera</span></li>
+        <li><span>Anterior</span></li>
+        {% endif %}
+
+        {% for number in videogame_list.paginator.page_range %}
+        {% if videogame_list.number == number %}
+        <li class="nav__container__ul-active"><span>{{number}}</span></li>
+        {% elif number > videogame_list.number|add:'-3' and number < videogame_list.number|add:'3' %} <li><a
+                href="?page={{number}}">{{number}}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if videogame_list.has_next %}
+            <li><a href="?page={{videogame_list.next_page_number}}">Siguiente</a></li>
+            <li><a href="?page={{videogame_list.paginator.num_pages}}">Última</a></li>
+            {% else %}
+            <li><span>Siguiente</span></li>
+            <li><span>Última</span></li>
+            {% endif %}
+    </ul>
+</nav>
+
+
 {% endblock %}
