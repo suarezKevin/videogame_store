@@ -8,7 +8,7 @@
     <title>{% block title %}
         Tienda de Videojuegos
         {% endblock %}</title>
-    <link rel="icon" href="{% static 'img/lol.jpg' %}" type="image/jpg">
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/jpg">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
@@ -16,6 +16,25 @@
 </head>
 
 <body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo">
+                </a>
+            </div>
+            <nav class="header__nav">
+                <ul><a class="header__nav-a {% if request.path == '/' %} a-active {% endif %}" href="{% url 'home' %}">Inicio</a></ul>
+                <ul><a class="header__nav-a {% if request.path == '/catalog/' %} a-active {% endif %}" href="{% url 'catalog' %}">Catálogo</a></ul>
+                <ul><a class="header__nav-a" href="#">Noticias</a></ul>
+                <ul><a class="header__nav-a {% if request.path == '/contacto/' %} a-active {% endif %}" href="{% url 'contacto' %}">Contacto</a></ul>
+            </nav>
+        </div>
+        <div class="header__search">
+            <input class="header__search-input" type="text" placeholder="Buscar...">
+            <button class="header__search-button">Buscar</button>
+        </div>
+    </header>
     <div class="content">
         {% block content %}
         <!-- Aqui irá el contenido espcífico de cada página -->

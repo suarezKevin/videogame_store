@@ -6,7 +6,7 @@ from catalog.models import Videogame
 def videogame_list(request):
     videogame = Videogame.objects.all().order_by('id')
     
-    paginator = Paginator(videogame, 1) # Show 6 videogames for page
+    paginator = Paginator(videogame, 6) # Show 6 videogames for page
     
     # We obtain the page number from the URL
     page_number = request.GET.get('page')
