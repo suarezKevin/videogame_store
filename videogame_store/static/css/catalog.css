@@ -71,3 +71,9 @@
     background: #25a394;
     color: #fffa;
 }
+
+.results__not__found {
+    font-size: 16px;
+    text-align: center;
+    color: #eafaf8;
+}

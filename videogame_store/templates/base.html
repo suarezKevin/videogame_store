@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}
-        Tienda de Videojuegos
+        KS Games
         {% endblock %}</title>
-    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/jpg">
+    <link rel="icon" href="{% static 'img/logo_ks.png' %}" type="image/jpg">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
@@ -20,19 +20,24 @@
         <div class="header__container">
             <div class="header__logo">
                 <a href="{% url 'home' %}">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo">
+                    <img src="{% static 'img/logo_ks.png' %}" alt="Logo">
                 </a>
             </div>
             <nav class="header__nav">
-                <ul><a class="header__nav-a {% if request.path == '/' %} a-active {% endif %}" href="{% url 'home' %}">Inicio</a></ul>
-                <ul><a class="header__nav-a {% if request.path == '/catalog/' %} a-active {% endif %}" href="{% url 'catalog' %}">Catálogo</a></ul>
+                <ul><a class="header__nav-a {% if request.path == '/' %} a-active {% endif %}"
+                        href="{% url 'home' %}">Inicio</a></ul>
+                <ul><a class="header__nav-a {% if request.path == '/catalog/' %} a-active {% endif %}"
+                        href="{% url 'catalog' %}">Catálogo</a></ul>
                 <ul><a class="header__nav-a" href="#">Noticias</a></ul>
-                <ul><a class="header__nav-a {% if request.path == '/contacto/' %} a-active {% endif %}" href="{% url 'contacto' %}">Contacto</a></ul>
+                <ul><a class="header__nav-a {% if request.path == '/contacto/' %} a-active {% endif %}"
+                        href="{% url 'contacto' %}">Contacto</a></ul>
             </nav>
         </div>
         <div class="header__search">
-            <input class="header__search-input" type="text" placeholder="Buscar...">
-            <button class="header__search-button">Buscar</button>
+            <form role="search" action="{% url 'searcher' %}" method="get">
+                <input class="header__search-input" type="search" name="q" value="{{request.GET.q|default:''}}" placeholder="Buscar...">
+                <button class="header__search-button" type="submit">Buscar</button>
+            </form>
         </div>
     </header>
     <div class="content">
@@ -42,7 +47,7 @@
     </div>
 
     <footer>
-        <p>2026 Tienda de Videojuegos</p>
+        <p>&copy 2026 <strong>KS</strong> Games</p>
         <a href="{% url 'home' %}">Inicio</a>
         <a href="{% url 'contacto' %}">Contacto</a>
     </footer>

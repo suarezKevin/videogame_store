@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     'catalog',
     'home',
+    'searcher',
 ]
 
 MIDDLEWARE = [

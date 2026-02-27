@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Resultados de Búsqueda {% endblock %}
+{% block content %}
+<h2 class="catalog__title">Resultados de la búsqueda para "{{query}}"</h2>
+
+{% if videogame_list %}
+<div class="catalog__content">
+    {% for videogame in videogame_list %}
+    <div class="catalog__content-item">
+        <img class="catalog__content-img" src="{% static 'img/front/' %}{{videogame.image}}"
+            alt="Portada de videojuegof">
+        <div>
+            <h4>{{videogame.name}}</h5>
+                <p>Plataforma: {{videogame.platform}}</p>
+                <p>Price: {{videogame.price}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<nav class="nav__container">
+    <ul class="nav__container__ul">
+        {% if videogame_list.has_previous %}
+        <li>
+            <a href="?q={{query}}&page={{videogame_list.previous_page_number}}">Anterior</a>
+        </li>
+        {% else %}
+        <li><span>Anterior</span></li>
+        {% endif %}
+
+        {% for number in videogame_list.paginator.page_range %}
+        {% if videogame_list.number == number %}
+        <li class="nav__container__ul-active"><span>{{number}}</span></li>
+        {% else %}
+        <li><a href="?q={{query}}&page={{number}}">{{number}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if videogame_list.has_next %}
+        <li><a href="?q={{query}}&page={{videogame_list.next_page_number}}">Siguiente</a></li>
+        {% else %}
+        <li><span>Siguiente</span></li>
+        {% endif %}
+    </ul>
+</nav>
+{% else %}
+<div class="results__not__found">
+    <span>¡Lo sentimos!, no se encontraron resultados para <b>"{{query}}".</b> </span>
+</div>
+{% endif %}
+
+{% endblock %}
