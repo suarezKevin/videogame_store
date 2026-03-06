@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{game.name}} {% endblock %}
+
+{% block content %}
+
+<div>
+    <img src="{% static 'img/front/' %}{{game.image}}" alt="">
+</div>
+
+{% endblock %}

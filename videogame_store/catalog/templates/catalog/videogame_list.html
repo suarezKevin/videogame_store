@@ -6,14 +6,18 @@
 <h2 class="catalog__title">Lista de Juegos</h2>
 <div class="catalog__content">
     {% for videogame in videogame_list %}
-    <div class="catalog__content-item">
-        <img class="catalog__content-img" src="{% static 'img/front/' %}{{videogame.image}}" alt="">
-        <div>
-            <h4>{{videogame.name}}</h5>
-                <p>Plataforma: {{videogame.platform}}</p>
-                <p>Price: {{videogame.price}}</p>
+    <a href="{% url 'game_detail' videogame.id %}">
+        <div class="catalog__content-item">
+            <img class="catalog__content-img" src="{% static 'img/front/' %}{{videogame.image}}" alt="">
+            <div>
+                <h4>{{videogame.name}}</h5>
+                    <p>Plataforma: {{videogame.platform}}</p>
+                    <p>Price: {{videogame.price}}</p>
+                    <button>Ver detalles</button>
+            </div>
         </div>
-    </div>
+    </a>
+
     {% endfor %}
 </div>
 
