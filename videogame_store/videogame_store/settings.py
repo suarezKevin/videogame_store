@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'catalog',
     'home',
     'searcher',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 #BASE_DIR-> representa el directorio base, es decir la carpeta principal del proyecto
+
+AUTH_USER_MODEL = 'user.Account'
+LOGIN_URL = 'log-in'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'log-in'

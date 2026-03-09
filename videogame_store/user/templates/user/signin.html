@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Registro {% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>Registro de Usuario</h2>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <!-- user field -->
+        <div>
+            <label for="{{form.username.id_for_label}}">Usuario</label>
+            <input type="text" name="{{form.username.html_name}}" id="{{form.username.id_for_label}}"
+                value="{{form.username.value|default_if_none:''}}">
+            {% if form.username.errors %}
+            <div>
+                {{form.username.errors|striptags}}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- email field -->
+        <div>
+            <label for="{{form.email.id_for_label}}">Correo Electrónico</label>
+            <input type="email" name="{{form.email.html_name}}" id="{{form.email.id_for_label}}"
+                value="{{form.email.value|default_if_none:''}}">
+            {% if form.email.errors %}
+            <div>
+                {{form.email.errors|striptags}}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- password field -->
+        <div>
+            <label for="{{form.password.id_for_label}}">Contraseña</label>
+            <div>
+                <input type="password" name="{{form.password.html_name}}" id="{{form.password.id_for_label}}"
+                    value="{{form.password.value|default_if_none:''}}">
+                <span onclick="togglePassword('{{form.password.id_for_label}}')">
+                    <i id="icon-{{form.password.id_for_label}}"></i>
+                </span>
+            </div>
+
+            {% if form.password.errors %}
+            <div>
+                {{form.password.errors|striptags}}
+            </div>
+            {% endif %}
+        </div>
+        <!-- password confirmation field -->
+        <div>
+            <label for="{{form.password2.id_for_label}}">Confirmar contraseña</label>
+            <div>
+                <input type="password" name="{{form.password2.html_name}}" id="{{form.password2.id_for_label}}"
+                    value="{{form.password2.value|default_if_none:''}}">
+                <span onclick="('{{form.password2.id_for_label}}')">
+                    <i id="icon-{{form.password2.id_for_label}}"></i>
+                </span>
+            </div>
+
+            {% if form.password2.errors %}
+            <div>
+                {{form.password2.errors|striptags}}
+            </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <button type="submit">Registrarse</button>
+        </div>
+
+    </form>
+    <p>
+        ¿Ya tienes cuenta?
+        <a href="{% url 'log-in' %}"> Inicia sesión</a>
+    </p>
+
+</div>
+
+{% endblock %}

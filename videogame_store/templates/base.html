@@ -35,9 +35,36 @@
         </div>
         <div class="header__search">
             <form role="search" action="{% url 'searcher' %}" method="get">
-                <input class="header__search-input" type="search" name="q" value="{{request.GET.q|default:''}}" placeholder="Buscar...">
+                <input class="header__search-input" type="search" name="q" value="{{request.GET.q|default:''}}"
+                    placeholder="Buscar...">
                 <button class="header__search-button" type="submit">Buscar</button>
             </form>
+            <!-- user/guest -->
+            <ul>
+                <li>
+                    <a href="#" role="button">
+
+                        <span>
+                            Hola,
+                            {% if user.is_authenticated %}
+                            <span>{{ user.username }}</span>
+                            {% else %}
+                            <span>Invitado</span>
+                            {% endif %}
+                        </span>
+                    </a>
+                    <ul>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">Mi perfil</a></li>
+                        <li><hr></li>
+                        <li><a href="{% url 'log-out' %}">Cerrar sesión</a></li>
+                        {% else %}
+                        <li><a href="{% url 'log-in' %}">Iniciar sesión</a></li>
+                        <li><a href="{% url 'sign-in' %}">Registrarse</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
         </div>
     </header>
     <div class="content">
